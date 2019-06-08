@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>iOS/Android</title>
+    <meta charset="UTF-8" name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+                body {
+                    background-color: black;
+                }
+            td {
+                color: yellow;
+                font-size: 20px;
+            }
+            input {
+                color: black;
+                border: 0;
+                font-size: 20px;
+            }
+            h1 {
+                color: green;
+                font-size: 20px;
+            }
+            </style>
+    <script type="text/javascript">
+			function geocodeAddress() {
+
+			    var address = {
+			    street: document.getElementById("street").value,
+			    state: document.getElementById("state").value,
+			    country: document.getElementById("country").value
+			    };
+
+if (window.NativeJavascriptInterface) {
+    // Call Android interface
+
+    window.NativeJavascriptInterface.postMessage(JSON.stringify(address)); //JSONObject: {"street":"","state":"","country":""}
+    //NativeJavascriptInterface.postMessage(JSON.stringify(address)); //JSONObject: {"street":"","state":"","country":""}
+
+  } else if (window.webkit && window.webkit.messageHandlers) {
+
+    // Call iOS interface
+
+     try {
+      webkit.messageHandlers.NativeJavascriptInterface.postMessage(address);
+      document.querySelector('h1').style.color = "green";
+      }
+      catch(err) {
+       document.querySelector('h1').style.color = "red";
+      }
+
+
+  } else {
+    // No Android or iOS interface found
+    console.log("No native APIs found.");
+  }
+}
+
+			function changeBackgroundColor(colorText) {
+				document.body.style.background = colorText;
+			}
+
+           //<!-- Getting value from iOS OR Android -->
+			function setLatLon(lat, lon) {
+				document.getElementById("latitude").value = lat;
+				document.getElementById("longitude").value = lon;
+			}
+
+        </script>
+</head>
+<body  width = "100%" height = "100%">
+<h1>WebView To Native Send Event using Javascript</h1>
+<table cellspacing="10" width = "100%" height = "100%">
+    <tr><td>Address</td><td><input id="street" type="text" width="80" value = "Noida Sector 18" /></td></tr>
+    <tr><td>City</td><td><input id="city" type="text" width="50" value = "Noida" /></td></tr>
+    <tr><td>State</td><td><input id="state" type="text" width="10" value = "UP" /></td></tr>
+    <tr><td>Country</td><td><input id="country" type="text" width="10" value = "IN" /></td></tr>
+    <tr><td/><td><input type="submit" value="Geocode Address" onclick="geocodeAddress();"></td></tr>
+    <tr/>
+    <tr><td>Latitude</td><td><input id="latitude" type="text" width="50" /></td></tr>
+    <tr><td>Longitude</td><td><input id="longitude" type="text" width="50" /></td></tr>
+</table>
+</body>
+</html>
