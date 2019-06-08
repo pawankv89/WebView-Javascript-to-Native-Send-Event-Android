@@ -332,9 +332,8 @@ document.getElementById("longitude").value = lon;
  https://firebase.google.com/docs/analytics/android/webview
  
  ## APK Links
- 
- ![](<a href='https://github.com/pawankv89/WebView-Javascript-to-Native-Send-Event-Android/blob/master/images/app.apk'>debug.apk</a>)
- 
+  
+ * **Build APK** - *Demo work* - [APK](https://github.com/pawankv89/WebView-Javascript-to-Native-Send-Event-Android/blob/master/images/app.apk)
 
 ## License
 
