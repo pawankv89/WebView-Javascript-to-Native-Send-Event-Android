@@ -333,7 +333,7 @@ document.getElementById("longitude").value = lon;
  
  ## APK Links
   
- * **Build APK** - *Demo work* - [APK](https://github.com/pawankv89/WebView-Javascript-to-Native-Send-Event-Android/blob/master/images/app.apk)
+ * **Build APK** - *Demo work* - [APK](https://github.com/pawankv89/WebView-Javascript-to-Native-Send-Event-Android/raw/master/images/app.apk)
 
 ## License
 
